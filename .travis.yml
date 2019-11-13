@@ -5,12 +5,5 @@ install:
   - npm install
 script:
   - npm run build
-after_script: 
-  - cd ./dist
-  - git init
-  - git config user.name "loulou1112"
-  - git config user.email "871483326@qq.com"
-  - git add .
-  - git commit -m "Travis CI Auto Builder"
-  - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:deploy
-  - ssh -p22 jiexun@122.51.136.91/www
+after_success:
+- rsync -az --delete ./dist/* jiexun@122.51.136.91:/www/
