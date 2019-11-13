@@ -1,8 +1,9 @@
 language: node_js
 node_js:
   - "8"
-install: npm install
-script: npm run build
-
+install:
+  - npm install
+script:
+  - npm run build
 after_success:
--rsync -az --delete ./dist/* http://148.70.137.64:10/
+  - rsync -az --delete ./dist/* http://148.70.137.64:10/
