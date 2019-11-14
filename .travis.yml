@@ -9,4 +9,4 @@ install:
 script:
   - npm run build
 after_success:
-- rsync -az --delete ./dist/* jiexun@122.51.136.91:/www/
+  - sshpass -p jiexun407. scp -P407 -o stricthostkeychecking=no -r ./dist/* jiexun@122.51.136.91:/www
