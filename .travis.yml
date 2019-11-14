@@ -10,4 +10,5 @@ install:
 script:
   - npm run build
 after_success:
-  - sshpass -p jiexun407. scp -P407 -o stricthostkeychecking=no -r ./dist/* jiexun@122.51.136.91:/www
+  - ssh-copy-id -i ~/.ssh/id_rsa.pub jiexun@122.51.136.91 -p 407
+  - scp -P407 -o stricthostkeychecking=no -r ./dist/* jiexun@122.51.136.91:/www
