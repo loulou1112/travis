@@ -9,5 +9,6 @@ install:
 script:
   - npm run build
 after_success:
-  - ssh-copy-id -i C:/Users/php1/.ssh/id_rsa.pub jiexun@122.51.136.91 -p 407
+  - ssh-keygen 
+  - ssh-copy-id -i ./id_rsa.pub jiexun@122.51.136.91 -p 407
   - scp -P407 -o stricthostkeychecking=no -r ./dist/* jiexun@122.51.136.91:/www
