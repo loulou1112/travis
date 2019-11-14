@@ -6,6 +6,7 @@ addons:
   - 122.51.136.91
 install:
   - npm install
+  - npm install sshpass
 script:
   - npm run build
 after_success:
