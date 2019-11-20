@@ -1,7 +1,10 @@
 language: node_js
 node_js:
   - "8"
+
 addons:
+  ssh_known_hosts:
+    - 122.51.136.91
   apt:
     packages:
     - sshpass
@@ -11,4 +14,4 @@ script:
   - npm run build
 after_success: 
   - export SSHPASS=[jiexun407.]
-  - scp -P407 -o stricthostkeychecking=no -r ./dist/* jiexun@122.51.136.91:/www
+  - sshpass -e ssh -P407 jiexun@122.51.136.91 scp -o stricthostkeychecking=no -r ./dist/* jiexun@122.51.136.91:/www
